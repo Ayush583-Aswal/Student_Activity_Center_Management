@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Activity Center</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .login-type {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .login-type button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .login-form {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .login-form input[type="text"], .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .login-form button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Student Activity Center</h1>
+    <div class="login-type">
+      <button id="studentLoginBtn">Student Login</button>
+      <button id="workerLoginBtn">Worker Login</button>
+    </div>
+    <div id="studentLoginForm" class="login-form" style="display: none;">
+      <h2>Student Login</h2>
+      <form id="studentForm">
+        <label for="studentId">Student ID:</label>
+        <input type="text" id="studentId" name="studentId" required>
+        <label for="studentName">Name:</label>
+        <input type="text" id="studentName" name="studentName" required>
+        <label for="studentUsername">Username:</label>
+        <input type="text" id="studentUsername" name="studentUsername" required>
+        <label for="studentPassword">Password:</label>
+        <input type="password" id="studentPassword" name="studentPassword" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <div id="workerLoginForm" class="login-form" style="display: none;">
+      <h2>Worker Login</h2>
+      <form id="workerForm">
+        <label for="workerId">Worker ID:</label>
+        <input type="text" id="workerId" name="workerId" required>
+        <label for="workerName">Name:</label>
+        <input type="text" id="workerName" name="workerName" required>
+        <label for="workerType">Type:</label>
+        <input type="text" id="workerType" name="workerType" required>
+        <label for="workerUsername">Username:</label>
+        <input type="text" id="workerUsername" name="workerUsername" required>
+        <label for="workerPassword">Password:</label>
+        <input type="password" id="workerPassword" name="workerPassword" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const studentLoginBtn = document.getElementById('studentLoginBtn');
+    const workerLoginBtn = document.getElementById('workerLoginBtn');
+    const studentLoginForm = document.getElementById('studentLoginForm');
+    const workerLoginForm = document.getElementById('workerLoginForm');
+
+    studentLoginBtn.addEventListener('click', () => {
+      studentLoginForm.style.display = 'block';
+      workerLoginForm.style.display = 'none';
+    });
+
+    workerLoginBtn.addEventListener('click', () => {
+      studentLoginForm.style.display = 'none';
+      workerLoginForm.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
