@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Worker Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <style>
+
+.dashboard-container {
+          max-width: 600px;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soften shadow */
+          padding-left: 100px;
+          padding-right: 100px;
+      }
+
+      h1, h2 {
+          text-align: center;
+          color: #333;
+      }
+
+      .form-container {
+          padding: 20px;
+          border: 1px solid #e0e0e0; 
+          border-radius: 8px;
+          margin-bottom: 20px;
+          background-color: #f9f9f9; 
+          width: 700px;
+      }
+
+      .form-container label {
+          display: block;
+          margin-bottom: 10px;
+          color: #555;
+      }
+
+      .form-container input[type="date"],
+      .form-container select,
+      .form-container button {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+
+      .form-container button {
+          background-color: #136ad5; 
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .form-container button:hover {
+          background-color: #0249a1; 
+      }
+    </style>
+  </head>
+  <body>
+    
+    <nav class="navbar">
+      <div class="logo_item">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img src="images/logo1.png" alt=""></i>IIITG SAC
+      </div>
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+        <i class='bx bx-sun' id="darkLight"></i>
+        <i class='bx bx-bell' ></i>
+      </div>
+    </nav>
+<div class="dash" style="display: flex; align-items: center;justify-content: center;">
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          
+          <li class="item">
+            <a href="home.html" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">  Home </span>
+              
+            </a>
+
+            
+          </li>
+          <li class="item" style="border-radius: 10px; background-color: white; margin-top: 400px;">
+            <div href="http://localhost:3000" class="submenu_item">
+              <span class="navlink_iconR" >
+                <i class='bx bx-log-out' style="color: red;margin-left:20px ;"></i>
+              </span>
+              <a href="http://localhost:3000" style="text-decoration: none;color: red;">Logout</a>
+              
+            </div>
+
+
+          </li>
+        
+    </ul>
+       
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <span> Expand</span>
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Collapse</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="forms" style="display: flex;flex-direction:column;padding-left: 120px;margin-left: 180px;margin-top: 100px;">
+        <div id="workerAvailabilityForm" class="form-container">
+            <h2>Set Availability</h2>
+            <label for="workerAvailability">Availability:</label>
+            <select id="workerAvailability" name="workerAvailability" required>
+              <option value="">Select Availability</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <button id="updateAvailability">Update Availability</button>
+        </div>
+        <div id="workerTypeForm" class="form-container" style="display: none;">
+            <h2>Worker Type</h2>
+            <form id="workerTypeForm">
+              <label for="workerType">Worker Type:</label>
+              <select id="workerType" name="workerType" required>
+                <option value="">Select Worker Type</option>
+                <option value="guard">Guard</option>
+                <option value="cleaner">Cleaner</option>
+              </select>
+              <div id="cleanerAreaContainer" style="display: none;">
+                <label for="cleanerArea">Cleaner Area:</label>
+                <select id="cleanerArea" name="cleanerArea">
+                  <option value="">Select Area</option>
+                  <option value="badminton-court">Badminton Court</option>
+                  <option value="yoga-room">Yoga Room</option>
+                  <option value="gym">Gym</option>
+                  <option value="music-room">Music Room</option>
+                  <option value="table-tennis-room">Table Tennis Room</option>
+                  <option value="dance-room">Dance Room</option>
+                  <option value="drama-room">Drama Room</option>
+                </select>
+                <label for="cleanerDate">Date:</label>
+                <input type="date" id="cleanerDate" name="cleanerDate">
+              </div>
+              <div id="guardDateContainer" style="display: none;">
+                <label for="guardDate">Date:</label>
+                <input type="date" id="guardDate" name="guardDate">
+              </div>
+              <button type="submit">Update Worker Type</button>
+            </form>
+          </div>
+    
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const workerTypeSelect = document.getElementById('workerType');
+        const cleanerAreaContainer = document.getElementById('cleanerAreaContainer');
+        const guardDateContainer = document.getElementById('guardDateContainer');
+        const updateAvailabilityBtn = document.getElementById('updateAvailability');
+        const workerAvailabilitySelect = document.getElementById('workerAvailability');
+        const workerTypeForm = document.getElementById('workerTypeForm');
+
+        updateAvailabilityBtn.addEventListener('click', () => {
+            const workerAvailability = workerAvailabilitySelect.value;
+            const workerId = new URLSearchParams(window.location.search).get('worker_id');
+
+            fetch('/update-availability', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ workerId, workerAvailability })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Availability updated successfully');
+                    alert(`Availability updated to ${workerAvailability}`);
+                    workerTypeForm.style.display = workerAvailability === 'yes' ? 'block' : 'none';
+                } else {
+                    console.error('Error updating availability');
+                    alert('Error updating availability. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+
+        workerTypeSelect.addEventListener('change', () => {
+            if (workerTypeSelect.value === 'cleaner') {
+                cleanerAreaContainer.style.display = 'block';
+                guardDateContainer.style.display = 'none';
+            } else if (workerTypeSelect.value === 'guard') {
+                cleanerAreaContainer.style.display = 'none';
+                guardDateContainer.style.display = 'block';
+            } else {
+                cleanerAreaContainer.style.display = 'none';
+                guardDateContainer.style.display = 'none';
+            }
+        });
+
+        document.getElementById('workerTypeForm').addEventListener('submit', (e) => {
+          e.preventDefault();
+        
+          const workerId = new URLSearchParams(window.location.search).get('worker_id');
+          const workerType = document.getElementById('workerType').value;
+          const cleanerArea = document.getElementById('cleanerArea').value;
+          const cleanerDate = document.getElementById('cleanerDate').value;
+          const guardDate = document.getElementById('guardDate').value;
+        
+          let formData = {
+            workerId,
+            workerType,
+            cleanerArea,
+            cleanerDate,
+            guardDate
+          };
+        
+          // Validate the form fields
+          let isValid = true;
+          if (workerType === 'cleaner' && (!cleanerArea || !cleanerDate)) {
+            isValid = false;
+            document.querySelector('#cleanerAreaContainer input, #cleanerAreaContainer select').classList.add('invalid');
+          }
+        
+          if (workerType === 'guard' && !guardDate) {
+            isValid = false;
+            document.querySelector('#guardDateContainer input').classList.add('invalid');
+          }
+        
+          if (isValid) {
+            fetch('/update-worker-type', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => {
+              if (response.ok) {
+                console.log('Worker type updated successfully');
+                alert("In-Entry of worker recorded!");
+              } else {
+                console.error('Error updating worker type');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+          } else {
+            // Focus on the first invalid form control
+            document.querySelector('.invalid').focus();
+          }
+        });
+    });
+  </script>
+   
+    <!-- JavaScript -->
+    <script src="dash.js"></script>
+    
+  </body>
+</html>

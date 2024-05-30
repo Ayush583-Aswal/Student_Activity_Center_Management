@@ -1,76 +1,297 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Student Activity Center</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
+      color: black;
+      background-color: white;
+      overflow-x: hidden;
+      /*background: linear-gradient(to right, #2d013d, #9729b0, #8803a5, #340143);*/
+      /* Text color on the background */
     }
-    .login-container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    .content1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: url('./images/87a476d6eabd1ee207c4bb92ef9ce6b8.webp');
+      padding: 250px;
+      height: 100vh;
     }
-    h1, h2 {
+
+    .content2 {
       text-align: center;
     }
+
+    .hello {
+      height: 200px;
+      width: 200px;
+      margin-top: 100px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .content3 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .personal {
+      width: 45%;
+      margin-top: 30px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content4 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #c1 {
+      text-align: left;
+    }
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .algo {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 700px;
+    }
+
+    .heading-p {
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+    }
+
+    .x {
+      padding-right: 10px;
+    }
+
+
+    .alpha {
+      animation: changeColor 10s infinite;
+    }
+
+    .hellome {
+      font-family: "Raleway";
+      font-size: 24px;
+      font-weight: 700;
+      color: #5D4037;
+      text-align: center;
+    }
+
+    .HomeBack a {
+      color: black;
+      margin-right: 15px;
+      /* Set the default text color */
+      text-decoration: none;
+      /* Remove underline */
+    }
+
+    .HomeBack a:hover {
+      color: white;
+      background-color: #136ad5;
+      border: 2px solid blue;
+      /* Add a blue border when hovered */
+      padding: 5px 10px;
+      /* Optional: Add padding for better visual effect */
+      border-radius: 5px;
+      /* Optional: Add border radius for rounded corners */
+    }
+
+
+
+    @media (max-width: 1400px) {
+
+      .heading-p {
+        align-items: center;
+      }
+
+      .algo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .dev {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+
+    }
+
+    .login-container {
+      max-width: 700px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      /* Subtle border */
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
     .login-type {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .login-type button {
       margin: 0 10px;
       padding: 10px 20px;
       font-size: 16px;
-      background-color: #4CAF50;
+      background-color: #136ad5;
+      /* Green */
       color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    .login-type button:hover {
+      background-color: #063a79;
+      /* Darker green on hover */
+    }
+
     .login-form {
       padding: 20px;
-      border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .login-form label {
       display: block;
       margin-bottom: 5px;
+      color: #555;
     }
-    .login-form input[type="text"], .login-form input[type="password"] {
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
-      border: 1px solid #ccc;
+      border: 1px solid #4399fc;
+      /* Green border */
       border-radius: 4px;
       box-sizing: border-box;
     }
+
     .login-form button[type="submit"] {
       width: 100%;
       padding: 10px;
-      background-color: #4CAF50;
+      background-color: #136ad5;
+      /* Green */
       color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
+    .login-form button[type="submit"]:hover {
+      background-color: #063a79;
+      /* Darker green on hover */
+
+    }
+    
+    .container-fluid.footer {
+        max-width: 100%;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .menu li a {
+    text-decoration: none;
+}
+
+.login-container {
+  max-width: 700px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin: auto; /* Center the container horizontally */
+  margin-top: 150px; /* Add top margin */
+  margin-bottom: 250px; /* Add bottom margin */
+  width: 100%;
+}
+
+
   </style>
+  <link rel="stylesheet" href="./css/solution.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Sacramento&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="style.css">
 </head>
+
 <body>
+
+  <nav class="site-nav mb-5" style="max-width: 100%; padding: 0;">
+    <div class="top-bar mb-3" style="background-color: white;">
+      <div class="row align-items-center">
+        <div class="col alpha">
+          <img src="https://www.iiitg.ac.in/uploads/2023/08/01/7cb707d8dc0de4a798b10636d76db56c.png" class="img-fluid" width="548px" height="2px" alt="" style="margin-left: 15px;">
+        </div>
+        <div class="col text-right"> <!-- Add this column -->
+          <div class="HomeBack"><a href="home.html" style="margin-left: 550px;">Back To Home</a></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <div class="login-container">
     <h1>Student Activity Center</h1>
     <div class="login-type">
       <button id="studentLoginBtn">Student Login</button>
       <button id="workerLoginBtn">Worker Login</button>
     </div>
+
+    <!-- Student Login Form -->
     <div id="studentLoginForm" class="login-form" style="display: none;">
       <h2>Student Login</h2>
-      <form id="studentForm">
+      <form id="studentForm" action="/student-login" method="post">
         <label for="studentId">Student ID:</label>
         <input type="text" id="studentId" name="studentId" required>
         <label for="studentName">Name:</label>
@@ -82,15 +303,21 @@
         <button type="submit">Login</button>
       </form>
     </div>
+
+    <!-- Worker Login Form -->
     <div id="workerLoginForm" class="login-form" style="display: none;">
       <h2>Worker Login</h2>
-      <form id="workerForm">
+      <form id="workerForm" action="/worker-login" method="post">
         <label for="workerId">Worker ID:</label>
         <input type="text" id="workerId" name="workerId" required>
         <label for="workerName">Name:</label>
         <input type="text" id="workerName" name="workerName" required>
         <label for="workerType">Type:</label>
-        <input type="text" id="workerType" name="workerType" required>
+        <select id="workerType" name="workerType" required>
+          <option value="">Select Worker Type</option>
+          <option value="guard">Guard</option>
+          <option value="cleaner">Cleaner</option>
+        </select>
         <label for="workerUsername">Username:</label>
         <input type="text" id="workerUsername" name="workerUsername" required>
         <label for="workerPassword">Password:</label>
@@ -99,7 +326,116 @@
       </form>
     </div>
   </div>
+  <div class="container-fluid" style="background-color: #090359; color: white;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-md-4 d-flex flex-column align-items-start" style="padding-left: 150px;">
+          <div class="college_icon mb-3">
+            <img src="./images/image.png" class="footer_img" alt="..." style="width: 180px; height: 120px;">
+          </div>
+          <div class="college_address">
+            <p>Bongora, Assam<br>
+              Guwahati -781015<br>
+              INDIA<br>
+              0824 2474000
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="item" style="padding-left: 20px;">
+            <h4>Quick Links</h4>
+            <ul class="menu">
+              <li><a href="https://www.iiitg.ac.in/" target="_blank" style="color: white;">Webmail</a></li>
+              <li><a href="home.html" style="color: white;">Home</a></li>
+              <li><a href="https://www.iiitg.ac.in/rti-data" target="_blank" style="color: white;">RTI</a></li>
+              <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=17QvcpxSnCFZPDZdtimbUwTLzSus&hl=en_US&ll=26.13654776452602%2C91.69562096938786&z=12" target="_blank" style="color: white;">Site Map</a></li>
+              <li><a href="https://www.iiitg.ac.in/health-care-center" target="_blank" style="color: white;">Health Care Center</a></li>
+              <li><a href="https://www.iiitg.ac.in/visitors-information" target="_blank" style="color: white;">Visitor's Information</a></li>
+              <li><a href="https://www.iiitg.ac.in/contact-us" target="_blank" style="color: white;">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end align-items-center">
+          <div class="india" style="margin-right: 150px;">
+            <img src="./images/24db3e5cdc60a4214e37a6c221ded906.png" class="footer_img" alt="..." style="width: 230px; height: 230px; margin-bottom: 10px;">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center border-top mt-5">
+        <p class="text-center text-md-start" style="padding-top: 30px; padding-left: 30px;">Copyright © 2022-2025 IIIT Guwahati, India. All rights reserved.</p>
+        <ul class="list-unstyled d-flex mb-0" style="padding-right: 30px;">
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-instagram"></i></li>
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-twitter"></i></li>
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-facebook"></i></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js'></script>
+  <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
   <script>
+    // Student login form submission handler
+    document.getElementById('studentForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(formData),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            // Redirect to the student dashboard with the student_id
+            const studentId = document.getElementById('studentId').value;
+            window.location.href = `/student-dashboard?student_id=${studentId}`;
+          } else {
+            // Handle login failure
+            console.error('Login failed');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Worker login form submission handler
+    document.getElementById('workerForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(formData),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            // Redirect to the student dashboard with the student_id
+            const workerId = document.getElementById('workerId').value;
+            window.location.href = `/worker-dashboard?worker_id=${workerId}`;
+          } else {
+            // Handle login failure
+            console.error('Login failed');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Show/hide login forms based on button clicks
     const studentLoginBtn = document.getElementById('studentLoginBtn');
     const workerLoginBtn = document.getElementById('workerLoginBtn');
     const studentLoginForm = document.getElementById('studentLoginForm');
@@ -116,4 +452,5 @@
     });
   </script>
 </body>
+
 </html>

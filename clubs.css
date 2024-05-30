@@ -1,0 +1,127 @@
+.tech{
+    
+    
+
+    
+}
+.content1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.content1 img{
+    width: 300px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 150px;
+}
+
+.content1 p{
+    font-size: 20px;
+    margin-top: 100px;
+    margin-bottom: 80px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 35px;
+    gap: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#head{
+    text-align: right;
+    margin-right: 180px;
+    font-family: sans-serif;
+    font-size: 4rem;
+
+}
+.cont{
+    display: none;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+}
+.tech:hover .cont, .culture:hover .cont,.sports:hover .cont,
+.cont:hover {
+  display: flex;
+  flex-direction: column;
+}
+.cont2{
+    margin-left: 150px;
+
+}
+#heading2{
+    font-family: sans-serif;
+}
+
+
+.cont2 ul li{
+    line-height: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.culture{
+    background-image: url("images/Organizational_Culture_2022_960x540px.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations to elements */
+#head, .content1, .cont2 {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+#head {
+    animation-name: fadeInUp;
+}
+
+
+.content1 {
+    animation-name: fadeInLeft;
+}
+
+.cont2 {
+    animation-name: fadeInRight;
+}
+
+

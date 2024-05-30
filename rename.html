@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Display+Playfair:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Login</title>
+  <style>
+    .login-container {
+      max-width: 700px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      /* Subtle border */
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .login-type {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .login-type button {
+      width: 100%;
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #136ad5;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-type button:hover {
+      background-color: #032754;
+      cursor: pointer;
+    }
+
+    .login-form {
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #4CAF50;
+      /* Green border */
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .login-form button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      /* Green */
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button[type="submit"]:hover {
+      background-color: #367b3a;
+      /* Darker green on hover */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icofont-close js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+
+  <nav class="site-nav mb-5">
+    <div class="top-bar mb-3" style="background-color: white;">
+      <div class="row align-items-center">
+        <div class="col alpha">
+          <img src="https://www.iiitg.ac.in/uploads/2023/08/01/7cb707d8dc0de4a798b10636d76db56c.png" class="img-fluid" width="548px" height="2px" alt="" style="margin-left: 15px;">
+        </div>
+        <div class="col text-right"> <!-- Add this column -->
+          <div class="HomeBack"><a href="index.html">Back To Home</a></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="untree_co-hero inner-page" style="background-image: url('images/login3.jpeg'); ">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-12">
+          <div class="row justify-content-center ">
+            <div class="col-lg-6 text-center ">
+              <h1 class="mb-4 heading text-white" data-aos="fade-up" data-aos-delay="100">Login</h1>
+
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+  </div> <!-- /.untree_co-hero -->
+
+
+
+
+  <div class="untree_co-section">
+    <div class="container">
+
+      <div class="row mb-5 justify-content-center">
+        <div class="col-lg-5 mx-auto order-1" data-aos="fade-up" data-aos-delay="200">
+          <form action="#" class="form-box">
+            <div class="login-type">
+              <button id="studentLoginBtn" style="margin-top: 20px;">Student Login</button>
+              <button id="workerLoginBtn" style="margin-top: 20px;">Worker Login</button>
+            </div>
+
+            <!-- Student Login Form -->
+            <div id="studentLoginForm" class="login-form" style="display: none;">
+              <h2>Student Login</h2>
+              <form id="studentForm" action="/student-login" method="post">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" name="studentId" required>
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+                <label for="studentUsername">Username:</label>
+                <input type="text" id="studentUsername" name="studentUsername" required>
+                <label for="studentPassword">Password:</label>
+                <input type="password" id="studentPassword" name="studentPassword" required>
+                <button type="submit">Login</button>
+             
+            </div>
+
+            <!-- Worker Login Form -->
+            <div id="workerLoginForm" class="login-form" style="display: none;">
+              <h2>Worker Login</h2>
+              <form id="workerForm" action="/worker-login" method="post">
+                <label for="workerId">Worker ID:</label>
+                <input type="text" id="workerId" name="workerId" required>
+                <label for="workerName">Name:</label>
+                <input type="text" id="workerName" name="workerName" required>
+                <label for="workerType">Type:</label>
+                <select id="workerType" name="workerType" required>
+                  <option value="">Select Worker Type</option>
+                  <option value="guard">Guard</option>
+                  <option value="cleaner">Cleaner</option>
+                </select>
+                <label for="workerUsername">Username:</label>
+                <input type="text" id="workerUsername" name="workerUsername" required>
+                <label for="workerPassword">Password:</label>
+                <input type="password" id="workerPassword" name="workerPassword" required>
+                <button type="submit">Login</button>
+              </form>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /.untree_co-section -->
+  <div class="container-fluid" style="background-color: #090359; color: white;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-md-4 d-flex flex-column align-items-start" style="padding-left: 150px;">
+          <div class="college_icon mb-3">
+            <img src="./images/image.png" class="footer_img" alt="..." style="width: 180px; height: 120px;">
+          </div>
+          <div class="college_address">
+            <p>Bongora, Assam<br>
+              Guwahati -781015<br>
+              INDIA<br>
+              0824 2474000
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="item" style="padding-left: 20px;">
+            <h4>Quick Links</h4>
+            <ul class="menu">
+              <li><a href="https://www.iiitg.ac.in/" target="_blank" style="color: white;">Webmail</a></li>
+              <li><a href="https://www.iiitg.ac.in/uploads/2023/12/11/c8ab816d128bc62b8c9433de2799259e.docx" style="color: white;">Home</a></li>
+              <li><a href="https://www.iiitg.ac.in/rti-data" target="_blank" style="color: white;">RTI</a></li>
+              <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=17QvcpxSnCFZPDZdtimbUwTLzSus&hl=en_US&ll=26.13654776452602%2C91.69562096938786&z=12" target="_blank" style="color: white;">Site Map</a></li>
+              <li><a href="https://www.iiitg.ac.in/health-care-center" target="_blank" style="color: white;">Health Care Center</a></li>
+              <li><a href="https://www.iiitg.ac.in/visitors-information" target="_blank" style="color: white;">Visitor's Information</a></li>
+              <li><a href="https://www.iiitg.ac.in/contact-us" target="_blank" style="color: white;">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end align-items-center">
+          <div class="india" style="margin-right: 150px;">
+            <img src="./images/24db3e5cdc60a4214e37a6c221ded906.png" class="footer_img" alt="..." style="width: 230px; height: 230px; margin-bottom: 10px;">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center border-top mt-5">
+        <p class="text-center text-md-start" style="padding-top: 30px; padding-left: 30px;">Copyright © 2022-2025 IIIT Guwahati, India. All rights reserved.</p>
+        <ul class="list-unstyled d-flex mb-0" style="padding-right: 30px;">
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-instagram"></i></li>
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-twitter"></i></li>
+          <li class="ms-3" style="font-size:25px; cursor: pointer; color: white;"><i class="bi bi-facebook"></i></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <script>
+
+    const studentLoginBtn = document.getElementById('studentLoginBtn');
+    const workerLoginBtn = document.getElementById('workerLoginBtn');
+    const studentLoginForm = document.getElementById('studentLoginForm');
+    const workerLoginForm = document.getElementById('workerLoginForm');
+
+    studentLoginBtn.addEventListener('click', () => {
+      studentLoginForm.style.display = 'block';
+      workerLoginForm.style.display = 'none';
+    });
+
+    workerLoginBtn.addEventListener('click', () => {
+      studentLoginForm.style.display = 'none';
+      workerLoginForm.style.display = 'block';
+    });
+
+    document.getElementById('studentForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleLogin(event.target, '/student-login', 'student-dashboard?student_id=');
+    });
+
+    // Worker login form submission handler
+    document.getElementById('workerForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleLogin(event.target, '/worker-login', 'worker-dashboard?worker_id=');
+    });
+
+    // Helper function to handle login form submission
+    function handleLogin(form, loginEndpoint, dashboardUrlPrefix) {
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(formData),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+        .then(response => {
+          if (response.ok) {
+            const idField = form.querySelector('[name="id"]');
+            const id = idField ? idField.value : '';
+            window.location.href = `${dashboardUrlPrefix}${id}`;
+          } else {
+            console.error('Login failed');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+  </script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+</html>

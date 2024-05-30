@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal || www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Boxicons CSS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: black;
+      background-color: white;
+      /*background: linear-gradient(to right, #2d013d, #9729b0, #8803a5, #340143);*/
+      /* Text color on the background */
+    }
+
+    .content1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-image: url('./images/87a476d6eabd1ee207c4bb92ef9ce6b8.webp');
+      padding: 250px;
+      height: 100vh;
+    }
+
+    .content2 {
+      text-align: center;
+    }
+
+    .hello {
+      height: 200px;
+      width: 200px;
+      margin-top: 100px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .content3 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .personal {
+      width: 45%;
+      margin-top: 30px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content4 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #c1 {
+      text-align: left;
+    }
+
+    .skill {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .algo {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 700px;
+    }
+
+    .heading-p {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+    }
+
+    .x {
+      padding-right: 10px;
+    }
+
+    .first {
+      background: linear-gradient(to right, #bcd4f1, #9ecdf4, #78beed, #3d8cf3, #2c87f5, #01397d, #011a39);
+    }
+
+    .alpha {
+      animation: changeColor 10s infinite;
+    }
+
+    .hellome {
+      font-family: "Raleway";
+      font-size: 24px;
+      font-weight: 700;
+      color: #5D4037;
+      text-align: center;
+    }
+
+    .hellome1 {
+      font-family: "Raleway";
+      font-size: 24px;
+      font-weight: 700;
+      color: #5D4037;
+      text-align: center;
+    }
+
+    /* Styles for card-wrap */
+    .card-wrap {
+      margin: 10px;
+      transform: perspective(800px);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card-wrap:hover .card-info {
+      transform: translateY(0);
+    }
+
+    .card-wrap:hover .card-info p {
+      opacity: 1;
+    }
+
+    .card-wrap:hover .card-info,
+    .card-wrap:hover .card-info p {
+      transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .card-wrap:hover .card-info:after {
+      transition: 5s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-wrap:hover .card-bg {
+      transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0.8;
+    }
+
+    .card-wrap:hover .card {
+      transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: rgba(255, 255, 255, 0.2) 0 0 40px 5px, white 0 0 0 1px, rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset white 0 0 0 6px;
+    }
+
+    /* Styles for card */
+    .card {
+      position: relative;
+      flex: 0 0 240px;
+      width: 300px;
+      height: 320px;
+      background-color: #333;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #333 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+      transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+
+    /* Styles for card background */
+    .card-bg {
+      opacity: 0.5;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      pointer-events: none;
+    }
+
+    /* Styles for card info */
+    .card-info {
+      padding: 20px;
+      position: absolute;
+      bottom: 0;
+      color: #fff;
+      transform: translateY(40%);
+      transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .card-info p {
+      opacity: 0;
+      text-shadow: black 0 2px 3px;
+      transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .card-info * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-info:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+      background-blend-mode: overlay;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: 5s 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+
+    .about-section p {
+      text-align: justify;
+      /* Justify the text */
+      margin: 0;
+      /* Remove default margin */
+    }
+
+
+    @keyframes changeColor {
+      0% {
+        background-color: rgb(85, 139, 47);
+      }
+
+      /* Dark green */
+      25% {
+        background-color: rgb(218, 119, 38);
+      }
+
+      /* Dark orange */
+      50% {
+        background-color: rgb(124, 150, 53);
+      }
+
+      /* Olive green */
+      75% {
+        background-color: rgb(204, 153, 0);
+      }
+
+      /* Dark yellow */
+      100% {
+        background-color: rgb(85, 139, 47);
+      }
+
+      /* Dark green */
+    }
+
+    .container-fluid {
+      background: linear-gradient(to right, #0f3057, #01203a, #011a2b, #0f3057);
+      animation: flowColor 10s linear infinite;
+    }
+
+    @keyframes flowColor {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .about-section {
+      background: linear-gradient(to right, #0266b7e2, rgb(61, 141, 238), rgb(61, 141, 238), #0266b7e2);
+      border-radius: 10px !important;
+    }
+
+    .activity-section {
+      background: linear-gradient(to right, #0266b7e2, rgb(61, 141, 238), rgb(61, 141, 238), #0266b7e2);
+      border-radius: 10px !important;
+    }
+
+
+    @media (max-width: 1400px) {
+
+      .heading-p {
+        align-items: center;
+      }
+
+      .algo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .dev {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+
+    }
+
+    .dashboard-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-align: center;
+      color: #333;
+    }
+
+    .dashboard-options {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-options button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .logout-btn {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .logout-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    .form-container {
+      background: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      margin-right: 500px;
+      width: 700px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-container input[type="date"],
+    .form-container input[type="time"],
+    .form-container select,
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .form-container button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #136ad5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #activitiesTable,
+    #allBookedActivitiesTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    #activitiesTable th,
+    #activitiesTable td,
+    #allBookedActivitiesTable th,
+    #allBookedActivitiesTable td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    #activitiesTable th,
+    #allBookedActivitiesTable th {
+      background-color: #136ad5;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="logo_item">
+      <i class="bx bx-menu" id="sidebarOpen"></i>
+      <img src="images/logo1.png" alt=""></i>IIITG SAC
+    </div>
+
+
+    <div class="navbar_content">
+      <i class="bi bi-grid"></i>
+      <i class='bx bx-sun' id="darkLight"></i>
+      <i class='bx bx-bell'></i>
+    </div>
+  </nav>
+  <div class="dash" style="display: flex; align-items: center;justify-content: center;">
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <div class="menu_title menu_dahsboard"></div>
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <a href="home.html" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink"> Home </span>
+
+            </a>
+
+
+          </li>
+          <!-- end -->
+
+          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-grid-alt"></i>
+              </span>
+              <button id="bookActivityBtn" class="btn" style="text-decoration: none;border: none;background-color: transparent;"> Book Activity</button>
+
+            </div>
+
+          </li>
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-grid-alt"></i>
+              </span>
+              <button id="viewActivitiesBtn" class="btn" style="text-decoration: none;border: none;background-color: transparent;"> View Signedup Activities</button>
+            </div>
+
+          </li>
+          <li class="item">
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-grid-alt"></i>
+              </span>
+              <button id="viewAllBookedActivitiesBtn" class="btn" style="text-decoration: none;border: none;background-color: transparent;"> All Booked Activities</button>
+
+            </div>
+
+          </li>
+          <li class="item">
+            <div href="#" class="nav_link submenu_item" id="scheduleEventTab" style="display: none">
+
+
+              <button id="scheduleEventBtn" class="btn" style="text-decoration: none;border: none;background-color: transparent;"> Schedule Event</button>
+
+
+            </div>
+
+          </li>
+          <li class="item" style="border-radius: 10px; background-color: white; margin-top: 250px;">
+            <div href="http://localhost:3000" class="submenu_item">
+              <span class="navlink_iconR" >
+                <i class='bx bx-log-out' style="color: red;margin-left:20px ;"></i>
+              </span>
+              <a href="http://localhost:3000" style="text-decoration: none;color: red;">Logout</a>
+              
+            </div>
+
+
+          </li>
+
+        </ul>
+
+
+    
+
+
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <span> Expand</span>
+            <i class='bx bx-log-in'></i>
+          </div>
+          <div class="bottom collapse_sidebar">
+            <span> Collapse</span>
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="forms" style="display: flex;justify-content: center;padding-left: 160px;margin-left: 480px;margin-top: 100px;">
+      <div id="bookActivityForm" class="form-container" >
+        <h2>Book Activity</h2>
+        <form id="activityForm">
+          <label for="activityType">Activity Type:</label>
+          <select id="activityType" name="activityType" required>
+            <option value="">Select Activity</option>
+            <option value="10001">Badminton</option>
+            <option value="10002">Gym</option>
+            <option value="10003">Table Tennis</option>
+            <option value="10004">Dance</option>
+            <option value="10005">Music</option>
+            <option value="10006">Drama</option>
+            <option value="10007">Meditation</option>
+            <option value="10008">Yoga</option>
+            <option value="10009">Drawing/Art</option>
+          </select>
+          <label for="activityDate">Date:</label>
+          <input type="date" id="activityDate" name="activityDate" required />
+          <label for="activityTime">Time:</label>
+          <input type="time" id="activityTime" name="activityTime" required />
+          <button type="submit">Book Activity</button>
+        </form>
+      </div>
+      <div id="signedUpActivities" class="form-container" style="display: none">
+        <h2>Signed Up Activities</h2>
+        <table id="activitiesTable">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Date</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="allBookedActivities" class="form-container" style="display: none; ">
+        <h2>All Booked Activities</h2>
+        <table id="allBookedActivitiesTable">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Student Name</th>
+              <th>Activity</th>
+              <th>Date</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h3>Filter Booked Activities</h3>
+        <form id="filterBookedActivitiesForm">
+          <label for="startTime">Start Time:</label>
+          <input type="time" id="startTime" name="startTime" />
+          <label for="endTime">End Time:</label>
+          <input type="time" id="endTime" name="endTime" />
+          <label for="startDate">Start Date:</label>
+          <input type="date" id="startDate" name="startDate" />
+          <label for="endDate">End Date:</label>
+          <input type="date" id="endDate" name="endDate" />
+          <button type="submit">Filter</button>
+        </form>
+      </div>
+      <div id="scheduleEventForm" class="form-container" style="display: none">
+        <h2>Schedule Event</h2>
+        <form id="eventForm">
+          <label for="eventName">Event Name:</label>
+          <input type="text" id="eventName" name="eventName" required />
+          <label for="eventDate">Date:</label>
+          <input type="date" id="eventDate" name="eventDate" required />
+          <label for="eventTime">Time:</label>
+          <input type="time" id="eventTime" name="eventTime" required />
+          <label for="eventActivity">Activity:</label>
+          <select id="eventActivity" name="eventActivity" required>
+            <option value="">Select Activity</option>
+            <option value="10001">Badminton</option>
+            <option value="10002">Gym</option>
+            <option value="10003">Table Tennis</option>
+            <option value="10004">Dance</option>
+            <option value="10005">Music</option>
+            <option value="10006">Drama</option>
+            <option value="10007">Meditation</option>
+            <option value="10008">Yoga</option>
+            <option value="10009">Drawing/Art</option>
+          </select>
+          <button type="submit">Schedule Event</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="dash.js"></script>
+
+</body>
+
+</html>
